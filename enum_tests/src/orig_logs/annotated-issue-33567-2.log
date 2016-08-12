@@ -1,0 +1,319 @@
+** first it looks at the fn args
+
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(4/CallSiteScope { fn_id: 4, body_id: 13 }), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(4/CallSiteScope { fn_id: 4, body_id: 13 }))
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(5/ParameterScope { fn_id: 4, body_id: 13 }), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(5/ParameterScope { fn_id: 4, body_id: 13 }))
+DEBUG:rustc_mir::build::matches: declare_binding(var_id=6, name=ex1(5671), var_ty=u32, var_scope_id=ScopeId(1), span=issue-33567-2.rs:3:12: 3:15)
+DEBUG:rustc_mir::build::matches: declare_binding: index=0
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb0, bindings=[Binding { span: issue-33567-2.rs:3:12: 3:15, source: arg0, name: ex1(5671), var_id: 6, var_ty: u32, mutability: Not, binding_mode: ByValue }])
+DEBUG:rustc_mir::build::cfg: push(bb0, var0 = arg0)
+DEBUG:rustc_mir::build::matches: declare_binding(var_id=9, name=ex2(5672), var_ty=u32, var_scope_id=ScopeId(1), span=issue-33567-2.rs:3:22: 3:25)
+DEBUG:rustc_mir::build::matches: declare_binding: index=1
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb0, bindings=[Binding { span: issue-33567-2.rs:3:22: 3:25, source: arg1, name: ex2(5672), var_id: 9, var_ty: u32, mutability: Not, binding_mode: ByValue }])
+DEBUG:rustc_mir::build::cfg: push(bb0, var1 = arg1)
+
+** done generating the arguments?
+
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(9/Misc(13)), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(9/Misc(13)))
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb0, expr=
+Expr { 
+  ty: bool, 
+  temp_lifetime: Some(CodeExtent(9/Misc(13))),
+  span: issue-33567-2.rs:4:5: 13:6, 
+  kind: Scope { 
+    extent: CodeExtent(10/Misc(14)), 
+    value: Mirror(Expr { 
+      ty: bool, 
+      temp_lifetime: Some(CodeExtent(9/Misc(13))), 
+      span: issue-33567-2.rs:4:5: 13:6, 
+      kind: Match { 
+        discriminant: Hair(expr(15: (ex1, ex2))), arms: [Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:5:9: 5:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:5:10: 5:11, kind: Constant { value: Integral(U32(0)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:5:13: 5:14, kind: Constant { value: Integral(U32(0)) } } }] } }], guard: None, body: Hair(expr(23: true)) }, Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:6:9: 6:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:6:10: 6:11, kind: Constant { value: Integral(U32(1)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:6:13: 6:14, kind: Constant { value: Integral(U32(1)) } } }] } }], guard: None, body: Hair(expr(29: true)) }, Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:7:9: 7:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:7:10: 7:11, kind: Constant { value: Integral(U32(2)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:7:13: 7:14, kind: Constant { value: Integral(U32(2)) } } }] } }], guard: None, body: Hair(expr(35: true)) }, Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:8:9: 8:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:8:10: 8:11, kind: Constant { value: Integral(U32(3)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:8:13: 8:14, kind: Constant { value: Integral(U32(3)) } } }] } }], guard: None, body: Hair(expr(41: true)) }, Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:9:9: 9:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:9:10: 9:11, kind: Constant { value: Integral(U32(4)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:9:13: 9:14, kind: Constant { value: Integral(U32(4)) } } }] } }], guard: None, body: Hair(expr(47: true)) }, Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:10:9: 10:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:10:10: 10:11, kind: Constant { value: Integral(U32(5)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:10:13: 10:14, kind: Constant { value: Integral(U32(5)) } } }] } }], guard: None, body: Hair(expr(53: true)) }, Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:11:9: 11:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:11:10: 11:11, kind: Constant { value: Integral(U32(6)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:11:13: 11:14, kind: Constant { value: Integral(U32(6)) } } }] } }], guard: None, body: Hair(expr(59: true)) }, Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:12:9: 12:10, kind: Wild }], guard: None, body: Hair(expr(61: false)) }] 
+      } 
+    }) 
+  } 
+})
+
+** i guess this is the function body scope?
+
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(10/Misc(14)), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(10/Misc(14)))
+
+** this is where it actually handles the match
+
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb0, 
+expr=Expr { 
+  ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:5: 13:6, kind: 
+  Match { 
+    discriminant: Hair(expr(15: (ex1, ex2))), 
+    arms: [
+      Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:5:9: 5:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:5:10: 5:11, kind: Constant { value: Integral(U32(0)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:5:13: 5:14, kind: Constant { value: Integral(U32(0)) } } }] } }], guard: None, body: Hair(expr(23: true)) }, 
+      Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:6:9: 6:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:6:10: 6:11, kind: Constant { value: Integral(U32(1)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:6:13: 6:14, kind: Constant { value: Integral(U32(1)) } } }] } }], guard: None, body: Hair(expr(29: true)) }, 
+      Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:7:9: 7:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:7:10: 7:11, kind: Constant { value: Integral(U32(2)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:7:13: 7:14, kind: Constant { value: Integral(U32(2)) } } }] } }], guard: None, body: Hair(expr(35: true)) }, 
+      Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:8:9: 8:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:8:10: 8:11, kind: Constant { value: Integral(U32(3)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:8:13: 8:14, kind: Constant { value: Integral(U32(3)) } } }] } }], guard: None, body: Hair(expr(41: true)) }, 
+      Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:9:9: 9:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:9:10: 9:11, kind: Constant { value: Integral(U32(4)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:9:13: 9:14, kind: Constant { value: Integral(U32(4)) } } }] } }], guard: None, body: Hair(expr(47: true)) }, 
+      Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:10:9: 10:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:10:10: 10:11, kind: Constant { value: Integral(U32(5)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:10:13: 10:14, kind: Constant { value: Integral(U32(5)) } } }] } }], guard: None, body: Hair(expr(53: true)) },      Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:11:9: 11:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:11:10: 11:11, kind: Constant { value: Integral(U32(6)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:11:13: 11:14, kind: Constant { value: Integral(U32(6)) } } }] } }], guard: None, body: Hair(expr(59: true)) },      Arm { patterns: [Pattern { ty: (u32, u32), span: issue-33567-2.rs:12:9: 12:10, kind: Wild }], guard: None, body: Hair(expr(61: false)) }] } 
+})
+
+** handle the discriminant tuple
+
+DEBUG:rustc_mir::build::expr::as_lvalue: expr_as_lvalue(block=bb0, expr=Expr { ty: (u32, u32), temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:11: 4:21, kind: Scope { extent: CodeExtent(11/Misc(15)), value: Mirror(Expr { ty: (u32, u32), temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:11: 4:21, kind: Tuple { fields: [Hair(expr(16: ex1)), Hair(expr(17: ex2))] } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(11/Misc(15)), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(11/Misc(15)))
+DEBUG:rustc_mir::build::expr::as_lvalue: expr_as_lvalue(block=bb0, expr=Expr { ty: (u32, u32), temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:11: 4:21, kind: Tuple { fields: [Hair(expr(16: ex1)), Hair(expr(17: ex2))] } })
+DEBUG:rustc_mir::build::expr::as_temp: expr_as_temp(block=bb0, expr=Expr { ty: (u32, u32), temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:11: 4:21, kind: Tuple { fields: [Hair(expr(16: ex1)), Hair(expr(17: ex2))] } })
+DEBUG:rustc_mir::build::misc: temp: created temp tmp0 with type (u32, u32)
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=tmp0, block=bb0, expr=Expr { ty: (u32, u32), temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:11: 4:21, kind: Tuple { fields: [Hair(expr(16: ex1)), Hair(expr(17: ex2))] } })
+DEBUG:rustc_mir::build::expr::as_rvalue: expr_as_rvalue(block=bb0, expr=Expr { ty: (u32, u32), temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:11: 4:21, kind: Tuple { fields: [Hair(expr(16: ex1)), Hair(expr(17: ex2))] } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb0, expr=Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:12: 4:15, kind: Scope { extent: CodeExtent(12/Misc(16)), value: Mirror(Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:12: 4:15, kind: VarRef { id: 6 } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(12/Misc(16)), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(12/Misc(16)))
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb0, expr=Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:12: 4:15, kind: VarRef { id: 6 } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Lvalue for=VarRef { id: 6 }
+DEBUG:rustc_mir::build::expr::as_temp: expr_as_temp(block=bb0, expr=Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:12: 4:15, kind: VarRef { id: 6 } })
+DEBUG:rustc_mir::build::misc: temp: created temp tmp1 with type u32
+DEBUG:rustc_mir::build::expr::as_lvalue: expr_as_lvalue(block=bb0, expr=Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:12: 4:15, kind: VarRef { id: 6 } })
+DEBUG:rustc_mir::build::cfg: push(bb0, tmp1 = var0)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(12/Misc(16)), bb0)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(12/Misc(16)) block=bb0
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb0, expr=Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:17: 4:20, kind: Scope { extent: CodeExtent(13/Misc(17)), value: Mirror(Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:17: 4:20, kind: VarRef { id: 9 } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(13/Misc(17)), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(13/Misc(17)))
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb0, expr=Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:17: 4:20, kind: VarRef { id: 9 } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Lvalue for=VarRef { id: 9 }
+DEBUG:rustc_mir::build::expr::as_temp: expr_as_temp(block=bb0, expr=Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:17: 4:20, kind: VarRef { id: 9 } })
+DEBUG:rustc_mir::build::misc: temp: created temp tmp2 with type u32
+DEBUG:rustc_mir::build::expr::as_lvalue: expr_as_lvalue(block=bb0, expr=Expr { ty: u32, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:4:17: 4:20, kind: VarRef { id: 9 } })
+DEBUG:rustc_mir::build::cfg: push(bb0, tmp2 = var1)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(13/Misc(17)), bb0)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(13/Misc(17)) block=bb0
+DEBUG:rustc_mir::build::cfg: push(bb0, tmp0 = (tmp1, tmp2))
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(11/Misc(15)), bb0)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(11/Misc(15)) block=bb0
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(19/DestructionScope(23)))
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(26/DestructionScope(29)))
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(33/DestructionScope(35)))
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(40/DestructionScope(41)))
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(47/DestructionScope(47)))
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(54/DestructionScope(53)))
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(61/DestructionScope(59)))
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(64/DestructionScope(61)))
+
+** start matching the actual match candidates
+
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb0, candidates=[
+  Candidate { span: issue-33567-2.rs:5:9: 5:15, match_pairs: [MatchPair { lvalue: tmp0, 
+    pattern: Pattern { ty: (u32, u32), span: issue-33567-2.rs:5:9: 5:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:5:10: 5:11, kind: Constant { value: Integral(U32(0)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:5:13: 5:14, kind: Constant { value: Integral(U32(0)) } } }] } 
+    }, slice_len_checked: false }
+  ], bindings: [], guard: None, arm_index: 0 }, 
+  Candidate { span: issue-33567-2.rs:6:9: 6:15, match_pairs: [MatchPair { lvalue: tmp0, pattern: Pattern { ty: (u32, u32), span: issue-33567-2.rs:6:9: 6:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:6:10: 6:11, kind: Constant { value: Integral(U32(1)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:6:13: 6:14, kind: Constant { value: Integral(U32(1)) } } }] } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 1 }, 
+  Candidate { span: issue-33567-2.rs:7:9: 7:15, match_pairs: [MatchPair { lvalue: tmp0, pattern: Pattern { ty: (u32, u32), span: issue-33567-2.rs:7:9: 7:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:7:10: 7:11, kind: Constant { value: Integral(U32(2)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:7:13: 7:14, kind: Constant { value: Integral(U32(2)) } } }] } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 2 }, 
+  Candidate { span: issue-33567-2.rs:8:9: 8:15, match_pairs: [MatchPair { lvalue: tmp0, pattern: Pattern { ty: (u32, u32), span: issue-33567-2.rs:8:9: 8:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:8:10: 8:11, kind: Constant { value: Integral(U32(3)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:8:13: 8:14, kind: Constant { value: Integral(U32(3)) } } }] } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 3 }, 
+  Candidate { span: issue-33567-2.rs:9:9: 9:15, match_pairs: [MatchPair { lvalue: tmp0, pattern: Pattern { ty: (u32, u32), span: issue-33567-2.rs:9:9: 9:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:9:10: 9:11, kind: Constant { value: Integral(U32(4)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:9:13: 9:14, kind: Constant { value: Integral(U32(4)) } } }] } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 4 }, 
+  Candidate { span: issue-33567-2.rs:10:9: 10:15, match_pairs: [MatchPair { lvalue: tmp0, pattern: Pattern { ty: (u32, u32), span: issue-33567-2.rs:10:9: 10:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:10:10: 10:11, kind: Constant { value: Integral(U32(5)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:10:13: 10:14, kind: Constant { value: Integral(U32(5)) } } }] } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 5 }, 
+  Candidate { span: issue-33567-2.rs:11:9: 11:15, match_pairs: [MatchPair { lvalue: tmp0, pattern: Pattern { ty: (u32, u32), span: issue-33567-2.rs:11:9: 11:15, kind: Leaf { subpatterns: [FieldPattern { field: Field(0), pattern: Pattern { ty: u32, span: issue-33567-2.rs:11:10: 11:11, kind: Constant { value: Integral(U32(6)) } } }, FieldPattern { field: Field(1), pattern: Pattern { ty: u32, span: issue-33567-2.rs:11:13: 11:14, kind: Constant { value: Integral(U32(6)) } } }] } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 6 }, 
+  Candidate { span: issue-33567-2.rs:12:9: 12:10, match_pairs: [MatchPair { lvalue: tmp0, pattern: Pattern { ty: (u32, u32), span: issue-33567-2.rs:12:9: 12:10, kind: Wild }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 7 }
+])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+
+** retrieve the necessary test for the first candidate to be applicable:
+
+** line 512: in matches.mod.rs:
+DEBUG:rustc_mir::build::matches: match_candidates: test=Test { span: issue-33567-2.rs:5:10: 5:11, kind: SwitchInt { switch_ty: u32, options: [Integral(U32(0)), Integral(U32(1)), Integral(U32(2)), Integral(U32(3)), Integral(U32(4)), Integral(U32(5)), Integral(U32(6))], indices: {Integral(U32(2)): 2, Integral(U32(0)): 0, Integral(U32(6)): 6, Integral(U32(4)): 4, Integral(U32(3)): 3, Integral(U32(1)): 1, Integral(U32(5)): 5} } } 
+
+match_pair=MatchPair { lvalue: (tmp0.0: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:5:10: 5:11, kind: Constant { value: Integral(U32(0)) } }, slice_len_checked: false }
+
+** we made new (empty?) basic blocks for the switch cases in perform test
+
+** in test_candidates how do we know we can stop sorting when we encounter the first candidate to which the test result does not apply?
+
+** we sort the candidates given the test with let tested_candidates = ... self.sort_candidate ...
+*** sort_candidate is where we assume the different possible values for our lvalue we are comparing against
+*** sort_candidate removes the match pair for the value we assumed
+
+** we found out we need to SwitchInt on tmp0.0 and the first candidate is satisfied when its 0u32
+
+** first recursive call to match_candidates
+
+** first we recurse on the 'test succeeded case' ie tmp0.0 == 0u32
+
+
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb10, candidates=[Candidate { span: issue-33567-2.rs:5:9: 5:15, match_pairs: [MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:5:13: 5:14, kind: Constant { value: Integral(U32(0)) } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 0 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: match_candidates: test=Test { span: issue-33567-2.rs:5:13: 5:14, kind: SwitchInt { switch_ty: u32, options: [Integral(U32(0))], indices: {Integral(U32(0)): 0} } } match_pair=MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:5:13: 5:14, kind: Constant { value: Integral(U32(0)) } }, slice_len_checked: false }
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb18, candidates=[Candidate { span: issue-33567-2.rs:5:9: 5:15, match_pairs: [], bindings: [], guard: None, arm_index: 0 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 1 candidates fully matched
+DEBUG:rustc_mir::build::matches: bind_and_guard_matched_candidate(block=bb18, candidate=Candidate { span: issue-33567-2.rs:5:9: 5:15, match_pairs: [], bindings: [], guard: None, arm_index: 0 })
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb18, bindings=[])
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb17, candidates=[])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb11, candidates=[Candidate { span: issue-33567-2.rs:6:9: 6:15, match_pairs: [MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:6:13: 6:14, kind: Constant { value: Integral(U32(1)) } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 1 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: match_candidates: test=Test { span: issue-33567-2.rs:6:13: 6:14, kind: SwitchInt { switch_ty: u32, options: [Integral(U32(1))], indices: {Integral(U32(1)): 0} } } match_pair=MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:6:13: 6:14, kind: Constant { value: Integral(U32(1)) } }, slice_len_checked: false }
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb20, candidates=[Candidate { span: issue-33567-2.rs:6:9: 6:15, match_pairs: [], bindings: [], guard: None, arm_index: 1 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 1 candidates fully matched
+DEBUG:rustc_mir::build::matches: bind_and_guard_matched_candidate(block=bb20, candidate=Candidate { span: issue-33567-2.rs:6:9: 6:15, match_pairs: [], bindings: [], guard: None, arm_index: 1 })
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb20, bindings=[])
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb19, candidates=[])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb12, candidates=[Candidate { span: issue-33567-2.rs:7:9: 7:15, match_pairs: [MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:7:13: 7:14, kind: Constant { value: Integral(U32(2)) } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 2 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: match_candidates: test=Test { span: issue-33567-2.rs:7:13: 7:14, kind: SwitchInt { switch_ty: u32, options: [Integral(U32(2))], indices: {Integral(U32(2)): 0} } } match_pair=MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:7:13: 7:14, kind: Constant { value: Integral(U32(2)) } }, slice_len_checked: false }
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb22, candidates=[Candidate { span: issue-33567-2.rs:7:9: 7:15, match_pairs: [], bindings: [], guard: None, arm_index: 2 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 1 candidates fully matched
+DEBUG:rustc_mir::build::matches: bind_and_guard_matched_candidate(block=bb22, candidate=Candidate { span: issue-33567-2.rs:7:9: 7:15, match_pairs: [], bindings: [], guard: None, arm_index: 2 })
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb22, bindings=[])
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb21, candidates=[])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb13, candidates=[Candidate { span: issue-33567-2.rs:8:9: 8:15, match_pairs: [MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:8:13: 8:14, kind: Constant { value: Integral(U32(3)) } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 3 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: match_candidates: test=Test { span: issue-33567-2.rs:8:13: 8:14, kind: SwitchInt { switch_ty: u32, options: [Integral(U32(3))], indices: {Integral(U32(3)): 0} } } match_pair=MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:8:13: 8:14, kind: Constant { value: Integral(U32(3)) } }, slice_len_checked: false }
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb24, candidates=[Candidate { span: issue-33567-2.rs:8:9: 8:15, match_pairs: [], bindings: [], guard: None, arm_index: 3 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 1 candidates fully matched
+DEBUG:rustc_mir::build::matches: bind_and_guard_matched_candidate(block=bb24, candidate=Candidate { span: issue-33567-2.rs:8:9: 8:15, match_pairs: [], bindings: [], guard: None, arm_index: 3 })
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb24, bindings=[])
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb23, candidates=[])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb14, candidates=[Candidate { span: issue-33567-2.rs:9:9: 9:15, match_pairs: [MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:9:13: 9:14, kind: Constant { value: Integral(U32(4)) } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 4 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: match_candidates: test=Test { span: issue-33567-2.rs:9:13: 9:14, kind: SwitchInt { switch_ty: u32, options: [Integral(U32(4))], indices: {Integral(U32(4)): 0} } } match_pair=MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:9:13: 9:14, kind: Constant { value: Integral(U32(4)) } }, slice_len_checked: false }
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb26, candidates=[Candidate { span: issue-33567-2.rs:9:9: 9:15, match_pairs: [], bindings: [], guard: None, arm_index: 4 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 1 candidates fully matched
+DEBUG:rustc_mir::build::matches: bind_and_guard_matched_candidate(block=bb26, candidate=Candidate { span: issue-33567-2.rs:9:9: 9:15, match_pairs: [], bindings: [], guard: None, arm_index: 4 })
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb26, bindings=[])
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb25, candidates=[])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb15, candidates=[Candidate { span: issue-33567-2.rs:10:9: 10:15, match_pairs: [MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:10:13: 10:14, kind: Constant { value: Integral(U32(5)) } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 5 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: match_candidates: test=Test { span: issue-33567-2.rs:10:13: 10:14, kind: SwitchInt { switch_ty: u32, options: [Integral(U32(5))], indices: {Integral(U32(5)): 0} } } match_pair=MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:10:13: 10:14, kind: Constant { value: Integral(U32(5)) } }, slice_len_checked: false }
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb28, candidates=[Candidate { span: issue-33567-2.rs:10:9: 10:15, match_pairs: [], bindings: [], guard: None, arm_index: 5 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 1 candidates fully matched
+DEBUG:rustc_mir::build::matches: bind_and_guard_matched_candidate(block=bb28, candidate=Candidate { span: issue-33567-2.rs:10:9: 10:15, match_pairs: [], bindings: [], guard: None, arm_index: 5 })
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb28, bindings=[])
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb27, candidates=[])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb16, candidates=[Candidate { span: issue-33567-2.rs:11:9: 11:15, match_pairs: [MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:11:13: 11:14, kind: Constant { value: Integral(U32(6)) } }, slice_len_checked: false }], bindings: [], guard: None, arm_index: 6 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: match_candidates: test=Test { span: issue-33567-2.rs:11:13: 11:14, kind: SwitchInt { switch_ty: u32, options: [Integral(U32(6))], indices: {Integral(U32(6)): 0} } } match_pair=MatchPair { lvalue: (tmp0.1: u32), pattern: Pattern { ty: u32, span: issue-33567-2.rs:11:13: 11:14, kind: Constant { value: Integral(U32(6)) } }, slice_len_checked: false }
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb30, candidates=[Candidate { span: issue-33567-2.rs:11:9: 11:15, match_pairs: [], bindings: [], guard: None, arm_index: 6 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 1 candidates fully matched
+DEBUG:rustc_mir::build::matches: bind_and_guard_matched_candidate(block=bb30, candidate=Candidate { span: issue-33567-2.rs:11:9: 11:15, match_pairs: [], bindings: [], guard: None, arm_index: 6 })
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb30, bindings=[])
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb29, candidates=[])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb9, candidates=[])
+DEBUG:rustc_mir::build::matches: match_candidates: 0 candidates fully matched
+DEBUG:rustc_mir::build::matches: matched_candidate(span=issue-33567-2.rs:4:5: 13:6, block=bb31, candidates=[Candidate { span: issue-33567-2.rs:12:9: 12:10, match_pairs: [], bindings: [], guard: None, arm_index: 7 }])
+DEBUG:rustc_mir::build::matches: match_candidates: 1 candidates fully matched
+DEBUG:rustc_mir::build::matches: bind_and_guard_matched_candidate(block=bb31, candidate=Candidate { span: issue-33567-2.rs:12:9: 12:10, match_pairs: [], bindings: [], guard: None, arm_index: 7 })
+DEBUG:rustc_mir::build::matches: bind_matched_candidate(block=bb31, bindings=[])
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb1, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:5:19: 5:23, kind: Scope { extent: CodeExtent(20/Misc(23)), value: Mirror(Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:5:19: 5:23, kind: Literal { literal: const true } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(20/Misc(23)), block=bb1)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(20/Misc(23)))
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb1, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:5:19: 5:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_rvalue: expr_as_rvalue(block=bb1, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:5:19: 5:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb1, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:5:19: 5:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Constant for=Literal { literal: const true }
+DEBUG:rustc_mir::build::cfg: push(bb1, return = const true)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(20/Misc(23)), bb1)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(20/Misc(23)) block=bb1
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(19/DestructionScope(23)), bb1)
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb2, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:6:19: 6:23, kind: Scope { extent: CodeExtent(27/Misc(29)), value: Mirror(Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:6:19: 6:23, kind: Literal { literal: const true } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(27/Misc(29)), block=bb2)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(27/Misc(29)))
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb2, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:6:19: 6:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_rvalue: expr_as_rvalue(block=bb2, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:6:19: 6:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb2, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:6:19: 6:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Constant for=Literal { literal: const true }
+DEBUG:rustc_mir::build::cfg: push(bb2, return = const true)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(27/Misc(29)), bb2)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(27/Misc(29)) block=bb2
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(26/DestructionScope(29)), bb2)
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb3, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:7:19: 7:23, kind: Scope { extent: CodeExtent(34/Misc(35)), value: Mirror(Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:7:19: 7:23, kind: Literal { literal: const true } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(34/Misc(35)), block=bb3)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(34/Misc(35)))
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb3, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:7:19: 7:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_rvalue: expr_as_rvalue(block=bb3, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:7:19: 7:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb3, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:7:19: 7:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Constant for=Literal { literal: const true }
+DEBUG:rustc_mir::build::cfg: push(bb3, return = const true)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(34/Misc(35)), bb3)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(34/Misc(35)) block=bb3
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(33/DestructionScope(35)), bb3)
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb4, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:8:19: 8:23, kind: Scope { extent: CodeExtent(41/Misc(41)), value: Mirror(Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:8:19: 8:23, kind: Literal { literal: const true } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(41/Misc(41)), block=bb4)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(41/Misc(41)))
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb4, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:8:19: 8:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_rvalue: expr_as_rvalue(block=bb4, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:8:19: 8:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb4, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:8:19: 8:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Constant for=Literal { literal: const true }
+DEBUG:rustc_mir::build::cfg: push(bb4, return = const true)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(41/Misc(41)), bb4)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(41/Misc(41)) block=bb4
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(40/DestructionScope(41)), bb4)
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb5, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:9:19: 9:23, kind: Scope { extent: CodeExtent(48/Misc(47)), value: Mirror(Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:9:19: 9:23, kind: Literal { literal: const true } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(48/Misc(47)), block=bb5)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(48/Misc(47)))
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb5, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:9:19: 9:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_rvalue: expr_as_rvalue(block=bb5, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:9:19: 9:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb5, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:9:19: 9:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Constant for=Literal { literal: const true }
+DEBUG:rustc_mir::build::cfg: push(bb5, return = const true)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(48/Misc(47)), bb5)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(48/Misc(47)) block=bb5
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(47/DestructionScope(47)), bb5)
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb6, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:10:19: 10:23, kind: Scope { extent: CodeExtent(55/Misc(53)), value: Mirror(Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:10:19: 10:23, kind: Literal { literal: const true } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(55/Misc(53)), block=bb6)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(55/Misc(53)))
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb6, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:10:19: 10:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_rvalue: expr_as_rvalue(block=bb6, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:10:19: 10:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb6, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:10:19: 10:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Constant for=Literal { literal: const true }
+DEBUG:rustc_mir::build::cfg: push(bb6, return = const true)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(55/Misc(53)), bb6)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(55/Misc(53)) block=bb6
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(54/DestructionScope(53)), bb6)
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb7, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:11:19: 11:23, kind: Scope { extent: CodeExtent(62/Misc(59)), value: Mirror(Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:11:19: 11:23, kind: Literal { literal: const true } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(62/Misc(59)), block=bb7)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(62/Misc(59)))
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb7, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:11:19: 11:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_rvalue: expr_as_rvalue(block=bb7, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:11:19: 11:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb7, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:11:19: 11:23, kind: Literal { literal: const true } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Constant for=Literal { literal: const true }
+DEBUG:rustc_mir::build::cfg: push(bb7, return = const true)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(62/Misc(59)), bb7)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(62/Misc(59)) block=bb7
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(61/DestructionScope(59)), bb7)
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb8, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:12:14: 12:19, kind: Scope { extent: CodeExtent(65/Misc(61)), value: Mirror(Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:12:14: 12:19, kind: Literal { literal: const false } }) } })
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(65/Misc(61)), block=bb8)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(65/Misc(61)))
+DEBUG:rustc_mir::build::expr::into: into_expr(destination=return, block=bb8, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:12:14: 12:19, kind: Literal { literal: const false } })
+DEBUG:rustc_mir::build::expr::as_rvalue: expr_as_rvalue(block=bb8, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:12:14: 12:19, kind: Literal { literal: const false } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand(block=bb8, expr=Expr { ty: bool, temp_lifetime: Some(CodeExtent(9/Misc(13))), span: issue-33567-2.rs:12:14: 12:19, kind: Literal { literal: const false } })
+DEBUG:rustc_mir::build::expr::as_operand: expr_as_operand: category=Constant for=Literal { literal: const false }
+DEBUG:rustc_mir::build::cfg: push(bb8, return = const false)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(65/Misc(61)), bb8)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(65/Misc(61)) block=bb8
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(64/DestructionScope(61)), bb8)
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(10/Misc(14)), bb32)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(10/Misc(14)) block=bb32
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(9/Misc(13)), bb32)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(9/Misc(13)) block=bb32
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(5/ParameterScope { fn_id: 4, body_id: 13 }), bb32)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(5/ParameterScope { fn_id: 4, body_id: 13 }) block=bb32
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(4/CallSiteScope { fn_id: 4, body_id: 13 }), bb33)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(4/CallSiteScope { fn_id: 4, body_id: 13 }) block=bb33
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(67/CallSiteScope { fn_id: 62, body_id: 64 }), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(67/CallSiteScope { fn_id: 62, body_id: 64 }))
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(68/ParameterScope { fn_id: 62, body_id: 64 }), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(68/ParameterScope { fn_id: 62, body_id: 64 }))
+DEBUG:rustc_mir::build::scope: in_scope(extent=CodeExtent(70/Misc(64)), block=bb0)
+DEBUG:rustc_mir::build::scope: push_scope(CodeExtent(70/Misc(64)))
+DEBUG:rustc_mir::build::cfg: push(bb0, return = ())
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(70/Misc(64)), bb0)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(70/Misc(64)) block=bb0
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(68/ParameterScope { fn_id: 62, body_id: 64 }), bb0)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(68/ParameterScope { fn_id: 62, body_id: 64 }) block=bb0
+DEBUG:rustc_mir::build::scope: pop_scope(CodeExtent(67/CallSiteScope { fn_id: 62, body_id: 64 }), bb1)
+DEBUG:rustc_mir::build::scope: in_scope: exiting extent=CodeExtent(67/CallSiteScope { fn_id: 62, body_id: 64 }) block=bb1

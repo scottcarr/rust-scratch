@@ -1,0 +1,5 @@
+main.rs:9:5: 15:6 error: non-exhaustive patterns: `Tigers` not covered [E0004]
+main.rs:9     match x {
+              ^
+main.rs:9:5: 15:6 help: run `rustc --explain E0004` to see a detailed explanation
+error: aborting due to previous error
